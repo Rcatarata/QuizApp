@@ -16,3 +16,23 @@ h1{
   margin: 0px;
   font-family: 'Montserrat', sans-serif;
 }
+
+.question-container {
+  width: 500px;
+  height: 200px;
+  border: 1px solid red;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+}
+
+
+ul{
+  list-style-type: none;
+}
+li:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
