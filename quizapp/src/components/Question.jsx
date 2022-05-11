@@ -70,7 +70,7 @@ export default function Question(props) {
                     <button className='answer--button' onClick={() => {setSelectedAnswer('d')}}>D. {questions[count].answers.d}</button>
                 </div>
                 
-                {count > 0 && <button onClick={back}>Back</button>}
+                {/* {count > 0 && <button onClick={back}>Back</button>} */}
                 {questions.length - 1 === count? <button onClick={submitter}>Submit</button>:<button onClick={next}>Next</button>}
                 
             </div>}
