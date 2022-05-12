@@ -17,7 +17,7 @@ export default function Question(props) {
     }
 
     function answerValidator() {
-        if (questions[count].correctAnswer === selectedAnswer) {
+        if (questions[count].correctAnswer.toLowerCase() === selectedAnswer.toLowerCase()) {
             setCorrectAnswerCount(prev => prev + 1)
             setAnswerStorage(prev => ({
                 ...prev, 

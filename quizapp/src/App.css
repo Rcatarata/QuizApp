@@ -15,7 +15,31 @@ body{
 h1{
   margin: 0px;
   font-family: 'Montserrat', sans-serif;
+  font-size: 6rem;
 }
+
+.button--container{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.start--button{
+  background-color: rgb(98, 166, 235);
+  border: none;
+  border-radius: 20px;
+  width: 100px;
+  height: 40px;
+  font-size: 1.3rem;
+  color: white;
+  box-shadow: 2px 2px 8px .5px #1c1c1c6e;
+  margin-top: 5px;
+}
+
+.start--button:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
 
 .question-container {
   width: 500px;
@@ -53,5 +77,7 @@ h1{
 }
 .answer--button:focus{
   background: linear-gradient(90deg, rgba(138,232,188,1) 0%, rgba(157,236,113,0.6727065826330532) 79%);
+  border: 2px solid deepskyblue;
 
 }
+

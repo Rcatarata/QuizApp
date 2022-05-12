@@ -17,7 +17,7 @@ const questions = [
             c: 'Dog', 
             d: 'Hummingbird'
         }, 
-        correctAnswer: 'd',
+        correctAnswer: 'D',
     },
     {
         question: '3. Which planet is the hottest?',

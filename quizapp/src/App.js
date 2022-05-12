@@ -12,8 +12,10 @@ function App() {
   return (
     <div className="hero-Section">
         {!began ? <Start /> : <Question />}
-        <button onClick={() => {setBegan(prev =>!prev)}}>{words}</button>
-    </div>
+        <div className='button--container'>
+            <button className='start--button' onClick={() => {setBegan(prev =>!prev)}}>{words}</button>
+        </div>
+      </div>
   )
 }
 
