@@ -19,7 +19,7 @@ h1{
 
 .question-container {
   width: 500px;
-  height: 200px;
+  height: 250px;
   border: 1px solid red;
   border-radius: 15px;
   display: flex;
@@ -28,11 +28,30 @@ h1{
   padding: 40px;
 }
 
-
-ul{
-  list-style-type: none;
+.answer--container{
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
 }
-li:hover{
-  cursor: pointer;
+.answer--button{
+  font-family: 'Montserrat', sans-serif;
+  height: 30px;
+  width: 80%;
+  margin: 5px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 1px 2px .3px .3px #1c1c1c72;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.answer--button:hover{
   transform: scale(1.1);
+  cursor: pointer;
+}
+.answer--button:focus{
+  background: linear-gradient(90deg, rgba(138,232,188,1) 0%, rgba(157,236,113,0.6727065826330532) 79%);
+
 }
