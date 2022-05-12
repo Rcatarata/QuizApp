@@ -49,8 +49,9 @@ h1{
 
 .answer--button:hover{
   transform: scale(1.1);
+  cursor: pointer;
 }
 .answer--button:focus{
-  background: rgba(0, 255, 157, 0.552);
+  background: linear-gradient(90deg, rgba(138,232,188,1) 0%, rgba(157,236,113,0.6727065826330532) 79%);
 
 }

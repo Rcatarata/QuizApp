@@ -1,5 +1,5 @@
 import {questions} from '../questions'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 
 export default function Question(props) {
@@ -10,6 +10,7 @@ export default function Question(props) {
     const [correctAnswerCount, setCorrectAnswerCount] = useState(0)
 
     const [selectedAnswer, setSelectedAnswer] = useState('')
+    const correctPercentage = `${((correctAnswerCount)/ (questions.length)) *100}%`;
 
     function back(){
         setCount(prev => prev -1)    
@@ -46,18 +47,18 @@ export default function Question(props) {
     function submitter(){
         answerValidator()
         setCompleted(true)
+        // checkAnswers()
     }
 
-    // function checkAnswers() {
-    //     for(let i = 0; i < questions.length; i++){
-    //         if (answerStorage[i] === 'correct'){
-    //             console.log(answerStorage[i])
-    //             setCorrectAnswerCount(prev => prev +1)
-    //         }
-    //     } 
-    //     console.log(`${((correctAnswerCount)/ (questions.length)) *100}%`)
-    // }
-
+    function checkAnswers() {
+        for(let i = 0; i < questions.length; i++){
+            if (answerStorage[i] === 'correct'){
+                console.log(answerStorage[i])
+                setCorrectAnswerCount(prev => prev +1)
+            }
+        } 
+        console.log(correctPercentage)
+    } 
 
     return(
         <div>
@@ -75,9 +76,9 @@ export default function Question(props) {
                 
             </div>}
             {completed && <div>
-                <h2>Congratulation, you got a {`${((correctAnswerCount)/ (questions.length)) *100}%`}</h2>
-                {/* <button onClick={()=>{console.log(answerStorage)}}>butoo</button>
-                <button onClick={checkAnswers}>butono</button> */}
+                <h2>Congratulation, you got a {correctPercentage}</h2>
+                {/* <button onClick={()=>{console.log(answerStorage)}}>butoo</button> */}
+                {/* <button onClick={checkAnswers}>butono</button> */}
             </div>}
         </div>
         
