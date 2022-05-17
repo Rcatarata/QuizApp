@@ -15,15 +15,16 @@ export default function Question(props) {
     function back(){
         setCount(prev => prev -1)    
     }
-
+console.log(questions)
     function answerValidator() {
         if (questions[count].correctAnswer.toLowerCase() === selectedAnswer.toLowerCase()) {
             setCorrectAnswerCount(prev => prev + 1)
             setAnswerStorage(prev => ({
                 ...prev, 
-                [count]: 'correct'
+                [count]: 'correct',
             }
             ))
+
         } else {
             setAnswerStorage(prev => ({
                 ...prev, 
@@ -57,7 +58,6 @@ export default function Question(props) {
                 setCorrectAnswerCount(prev => prev +1)
             }
         } 
-        console.log(correctPercentage)
     } 
 
     return(
@@ -71,7 +71,7 @@ export default function Question(props) {
                     <button className='answer--button' onClick={() => {setSelectedAnswer('d')}}>D. {questions[count].answers.d}</button>
                 </div>
                 
-                {/* {count > 0 && <button onClick={back}>Back</button>} */}
+                {count > 0 && <button onClick={back}>Back</button>}
                 {questions.length - 1 === count? <button onClick={submitter}>Submit</button>:<button onClick={next}>Next</button>}
                 
             </div>}
