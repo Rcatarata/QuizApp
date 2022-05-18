@@ -3,22 +3,28 @@ import {useState, useEffect} from 'react'
 
 
 export default function Question(props) {
+    // state for completed quiz
     const [completed, setCompleted] = useState(false)
+    // state for to determine if answer is correct with back button 
     const [answerStorage, setAnswerStorage] = useState({})
-
+    // state for count of current question index
     const [count, setCount] = useState(0)
+    // state for correct answer if only the next button is used 
     const [correctAnswerCount, setCorrectAnswerCount] = useState(0)
-
+    // state for selecting the answer 
     const [selectedAnswer, setSelectedAnswer] = useState('')
-    const correctPercentage = `${((correctAnswerCount)/ (questions.length)) *100}%`;
+    // var for percentage displayed at the end of quiz
+    let correctPercentage = `${((correctAnswerCount)/ (questions.length)) *100}%`;
 
+
+    // decrements the count of question index
     function back(){
         setCount(prev => prev -1)    
     }
-console.log(questions)
+    
     function answerValidator() {
         if (questions[count].correctAnswer.toLowerCase() === selectedAnswer.toLowerCase()) {
-            setCorrectAnswerCount(prev => prev + 1)
+            // setCorrectAnswerCount(prev => prev + 1)
             setAnswerStorage(prev => ({
                 ...prev, 
                 [count]: 'correct',
@@ -47,8 +53,11 @@ console.log(questions)
 
     function submitter(){
         answerValidator()
+        setTimeout(()=>{
+            checkAnswers();
+        },5000)
+        console.log(answerStorage)
         setCompleted(true)
-        // checkAnswers()
     }
 
     function checkAnswers() {
@@ -58,6 +67,7 @@ console.log(questions)
                 setCorrectAnswerCount(prev => prev +1)
             }
         } 
+        console.log(answerStorage)
     } 
 
     return(
@@ -77,7 +87,7 @@ console.log(questions)
             </div>}
             {completed && <div>
                 <h2>Congratulation, you got a {correctPercentage}</h2>
-                {/* <button onClick={()=>{console.log(answerStorage)}}>butoo</button> */}
+                <button onClick={()=>{console.log(answerStorage)}}>butoo</button>
                 {/* <button onClick={checkAnswers}>butono</button> */}
             </div>}
         </div>
