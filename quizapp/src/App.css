@@ -48,7 +48,8 @@ h1{
 .question-container {
   width: 500px;
   height: 250px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  box-shadow: 16px 16px 18px .5px #1c1c1c23;
   border-radius: 15px;
   display: flex;
   flex-direction: column;

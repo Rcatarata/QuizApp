@@ -24,7 +24,7 @@ export default function Question(props) {
     
     function answerValidator() {
         if (questions[count].correctAnswer.toLowerCase() === selectedAnswer.toLowerCase()) {
-            // setCorrectAnswerCount(prev => prev + 1)
+            setCorrectAnswerCount(prev => prev + 1)
             setAnswerStorage(prev => ({
                 ...prev, 
                 [count]: 'correct',
@@ -38,6 +38,7 @@ export default function Question(props) {
             }
             ))
         }
+        console.log(answerStorage)
     }
 
 
@@ -51,24 +52,31 @@ export default function Question(props) {
         setSelectedAnswer('')
     }
 
-    function submitter(){
+    async function submitter(){
         answerValidator()
-        setTimeout(()=>{
-            checkAnswers();
-        },5000)
-        console.log(answerStorage)
         setCompleted(true)
     }
 
-    function checkAnswers() {
-        for(let i = 0; i < questions.length; i++){
-            if (answerStorage[i] === 'correct'){
-                console.log(answerStorage[i])
-                setCorrectAnswerCount(prev => prev +1)
-            }
-        } 
-        console.log(answerStorage)
-    } 
+    // useEffect(()=>{
+    //     answerValidator()
+    // },[count])
+
+    // useEffect(()=>{
+    //     checkAnswers()
+    // },[count])
+    
+
+    // function checkAnswers() {
+    //     console.log(count + 'check anser')
+    //     if (setCompleted) {
+    //         for(let i = 0; i < questions.length; i++){
+    //             if (answerStorage[i] === 'correct'){
+    //                 setCorrectAnswerCount(prev => prev +1)
+    //             }
+    //         }
+    //     }
+    //     console.log(answerStorage)
+    // } 
 
     return(
         <div>
@@ -81,13 +89,13 @@ export default function Question(props) {
                     <button className='answer--button' onClick={() => {setSelectedAnswer('d')}}>D. {questions[count].answers.d}</button>
                 </div>
                 
-                {count > 0 && <button onClick={back}>Back</button>}
+                {/* {count > 0 && <button onClick={back}>Back</button>} */}
                 {questions.length - 1 === count? <button onClick={submitter}>Submit</button>:<button onClick={next}>Next</button>}
                 
             </div>}
             {completed && <div>
                 <h2>Congratulation, you got a {correctPercentage}</h2>
-                <button onClick={()=>{console.log(answerStorage)}}>butoo</button>
+                {/* <button onClick={checkAnswers}>butoo</button> */}
                 {/* <button onClick={checkAnswers}>butono</button> */}
             </div>}
         </div>
